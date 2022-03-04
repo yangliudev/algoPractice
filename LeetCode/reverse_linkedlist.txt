@@ -1,0 +1,42 @@
+next_node = NULL
+prev = NULL
+curr = head
+
+	     head
+NULL	 1 ->		2 ->	3 ->	4 ->	5 ->	NULL
+prev	 curr 	-> 	curr.next
+					next_node
+
+NULL			
+prev <- curr		next_node
+
+prev
+NULL <- curr		next_node
+
+NULL <- prev        curr    curr.next
+
+NULL <- prev     <- curr	next_node
+
+NULL <- 1        <- prev    curr   curr.next
+
+								   next_node
+NULL <- 1        <- 2       prev   curr    curr.next
+
+								           next_node
+NULL <- 1        <- 2       <-3    prev    curr      curr.next
+
+													 next_node (NULL)
+NULL <- 1        <- 2       <-3    <-4 <-  prev      curr (NULL)
+NULL <- 1        <- 2       <-3    <-4 <-  5      curr (NULL)
+
+
+prev = None
+curr = head
+next = curr.next
+while (next != null) {
+	curr.next = prev
+	prev = curr
+	next = next.next
+}
+
+return curr
