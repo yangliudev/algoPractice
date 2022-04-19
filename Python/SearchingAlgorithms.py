@@ -1,6 +1,7 @@
 import random
 
-number_list = [1, 2, 3, 4, 5, 6]
+number_list = [1, 2, 5, 7, 13, 15, 16, 18, 24, 28, 29]
+# 11 elements in list
 
 def linear_search(ls, target):
     for num in ls:
@@ -27,6 +28,23 @@ def binary_search(ls, target):
 
     if isFound == False:
         print('Number not found!')
+
+def binary_search_recursive(ls, target):
+    mid = (len(ls) - 1) // 2
+
+    if len(ls) == 1:
+        print('TARGET DOES NOT EXIST')
+        return False
+
+    if ls[mid] == target:
+        print('FOUND TARGET')
+        return True
+
+    if ls[mid] > target:
+        binary_search_recursive(ls[:mid+1], target)
+    else:
+        binary_search_recursive(ls[mid+1:], target)
         
 #linear_search(number_list, 5)
-binary_search(number_list, 1)
+#binary_search(number_list, 1)
+binary_search_recursive(number_list, 18)

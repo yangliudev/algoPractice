@@ -14,6 +14,6 @@ def selection_sort(ls):
         ls[i] = ls[min_index]
         ls[min_index] = prev_num
 
-    print(ls)
+    return ls
 
-selection_sort(ls)
+print(selection_sort(ls))

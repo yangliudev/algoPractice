@@ -52,7 +52,7 @@ def factorial(n):
   product = n * factorial(n-1)
   return product
 
-print(factorial(4))
+#print(factorial(4))
 
 # https://stackoverflow.com/questions/5532902/python-reversing-a-string-using-recursion
 def recursive_reverse(word):
@@ -62,7 +62,7 @@ def recursive_reverse(word):
   else:
     return word[-1] + recursive_reverse(word[:-1])
 
-print(recursive_reverse('nbc'))
+#print(recursive_reverse('nbc'))
 
 # First call - recursive_reverse('nbc')
 # word[-1] + recursive_reverse(word[:-1]) == 'c' + recursive_reverse('nb')
@@ -76,3 +76,68 @@ print(recursive_reverse('nbc'))
 # Fourth call - recursive_reverse('')
 # if word == '':
 #   return word
+
+def recursive_fibonacci(n):
+  # base case
+  if n == 0 or n == 1:
+    return n
+
+  res = recursive_fibonacci(n - 1) + recursive_fibonacci(n - 2)
+
+  return res
+
+# print(recursive_fibonacci(29))
+
+# 0 1 1 2 3 5
+
+def recursive_palindrome(word):
+  if len(word) < 2:
+    return True
+  if word[0] != word[-1]:
+    return False
+
+  return recursive_palindrome(word[1:-1])
+
+print(recursive_palindrome('racecar'))
+
+def recursive_vowels(word):
+  vowels = 'aeiouAEIOU'
+
+  if word == '':
+    return 0
+  
+  if word[0] in vowels:
+    return 1 + recursive_vowels(word[1:])
+  else:
+    return 0 + recursive_vowels(word[1:])
+  
+print(recursive_vowels('aay'))
+
+# First call - recursive_vowels('aay')
+# return 1 + recursive_vowels(word[1:])
+# return 1 + recursive_vowels('ay')
+
+# Second call - recursive_vowels('ay')
+# return 1 + recursive_vowels(word[1:])
+# return 1 + recursive_vowels('y')
+
+# Third call - recursive_vowels('y')
+# return 0 + recursive_vowels(word[1:])
+# return 0 + recursive_vowels('')
+
+# Fourth call - recursive_vowels('') RETURNS 0
+
+def recursive_sum(nums):
+  if len(nums) == 0:
+    return 0
+  
+  return nums[0] + recursive_sum(nums[1:])
+
+print(recursive_sum([1,3,5,7,9]))
+
+def recursive_reverse_list(ls):
+    if len(ls) == 0:
+        return []
+    return [ls[-1]] + recursive_reverse_list(ls[:-1])
+    
+print(recursive_reverse_list([1, 2, 3]))
